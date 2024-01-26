@@ -1,0 +1,24 @@
+
+.content {
+    // display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.musicItems {
+    margin: 2em;
+    padding: 8em 4em;
+    background-color: rgb(79, 79, 79);
+    border-radius: 10%;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
