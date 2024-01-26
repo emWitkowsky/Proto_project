@@ -1,0 +1,51 @@
+// import express from "express";
+// import { Register } from "../controllers/auth.js";
+// import Validate from "../middleware/validate.js";
+// import { check } from "express-validator";
+const express = require('express');
+const Validate = require('../middleware/validate');
+const { check } = require('express-validator');
+
+const router = express.Router();
+
+const { Register, Login } = require('../controllers/auth');
+// Register route -- POST request
+router.post('/register',
+    check("email")
+        .isEmail()
+        .withMessage("Enter a valid email address")
+        .normalizeEmail(),
+    check("first_name")
+        .not()
+        .isEmpty()
+        .withMessage("You first name is required")
+        .trim()
+        .escape(),
+    check("last_name")
+        .not()
+        .isEmpty()
+        .withMessage("You last name is required")
+        .trim()
+        .escape(),
+    check("password")
+        .notEmpty()
+        .isLength({ min: 8 })
+        .withMessage("Must be at least 8 chars long"),
+    Validate,
+    Register
+);
+
+// const Login = require('../controllers/auth');
+// Login route == POST request
+router.post(
+    "/login",
+    check("email")
+        .isEmail()
+        .withMessage("Enter a valid email address")
+        .normalizeEmail(),
+    check("password").not().isEmpty(),
+    Validate,
+    Login
+);
+
+module.exports = router;
