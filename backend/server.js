@@ -9,7 +9,11 @@ const cors = require("cors");
 require("dotenv").config({ path: "./.env" });
 const port = process.env.PORT || 5003;
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', // replace with the domain of your client app
+  credentials: true,
+}));
 app.use(express.json());
 app.use(require("./routes/record.js"));
 app.use(cookieParser())

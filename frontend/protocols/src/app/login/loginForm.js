@@ -28,9 +28,11 @@
 
 import { Formik, Field, Form } from 'formik';
 import { useCookies } from 'next-client-cookies';
+import { useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
     const cookies = useCookies();
+    // const history = useHistory();
     return (
         <div>
             <h1>Login</h1>
@@ -51,6 +53,9 @@ const LoginForm = () => {
                         console.log(response);
                         cookies.set('token', data.data[1]);
                         console.log(data);
+                        if (data.status === 'success') {
+                            history.push('/');
+                        }
                     } else {
                         console.error('Error:', response.status);
                     }

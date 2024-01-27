@@ -2,6 +2,9 @@
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import TrackComments from './comments';
+import PostCommentForm from './postComment';
+
 
 
 
@@ -33,7 +36,13 @@ export default function Page({ params }) {
         <div>
             <h1>Track: {params.slug}</h1>
             <p>ID: {track.id}</p>
+            <p>Genre: {track.genre}</p>
+            <p>Popular: {track.popular}</p>
             {/* Display track information here. */}
+            <div>
+                <TrackComments trackId={track.id} trakcName={params.slug}/>
+                <PostCommentForm trackId={track.id} />
+            </div>
         </div>
     );
 }
