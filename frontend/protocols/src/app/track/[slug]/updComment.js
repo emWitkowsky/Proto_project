@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
+import styles from './track.module.scss';
 
 const UpdateCommentForm = ({ commentId }) => {
     const handleSubmit = async (values) => {
@@ -26,7 +27,7 @@ const UpdateCommentForm = ({ commentId }) => {
                     {/* <label htmlFor="text">Update</label> */}
                     <Field id="text" name="text" placeholder="Corrected comment" />
 
-                    <button type="submit">Update</button>
+                    <button type="submit" className={styles.btn}>Update</button>
                 </Form>
             </Formik>
         </div>

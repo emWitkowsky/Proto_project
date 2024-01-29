@@ -1,13 +1,14 @@
 import Link from 'next/link';
+import styles from './loginBar.module.scss';
 
 function LoginRegisterButtons() {
     return (
         <div>
             <Link href="/login">
-                <button>Login</button>
+                <button className={styles.button}>Login</button>
             </Link>
             <Link href="/register">
-                <button>Register</button>
+                <button className={styles.button}>Register</button>
             </Link>
         </div>
     );

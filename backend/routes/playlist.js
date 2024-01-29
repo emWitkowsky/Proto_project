@@ -158,6 +158,7 @@ playlistRoutes.get('/users/playlists', Verify, async (req, res) => {
     const session = driver.session();
     try {
       const userEmail = req.userId.email;
+      // const userEmail = req.params.email;
   
       if (!userEmail) {
         console.error('No user email in session');

@@ -1,0 +1,47 @@
+.trackPage {
+    margin: 0;
+    padding: 8em 4em;
+    background-color: rgb(25, 25, 25);
+    color: beige;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    align-items: flex-end;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.header {
+    // display: flex;
+    width: 20em;
+}
+
+.commentSection {
+    // font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.comm {
+    background-color: rgb(32, 32, 32);
+    padding: 1em;
+    margin: 1em;
+    width: 20em;
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.formu {
+    background-color: rgb(51, 46, 46);
+    border: none;
+    padding: 0.5em;
+    border-radius: 10px;
+}

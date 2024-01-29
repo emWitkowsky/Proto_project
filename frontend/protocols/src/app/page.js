@@ -11,13 +11,13 @@ export default function Home() {
         <div className={styles.myDiv}>
             <div className={styles.navbar}>
                 <h1 className={styles.myH1}>Music App</h1>
-                <p>Home page body content</p>
+                <p>Music database</p>
                 {/* <SearchBar /> */}
             </div>
             <div className={styles.loginBar}>
                 <LoginRegisterButtons />
             </div>
-            <Items />
+            <Items className={styles.fullWidth} />
         </div>
     );
 }

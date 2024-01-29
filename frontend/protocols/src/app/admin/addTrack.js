@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
 import { useCookies } from 'next-client-cookies';
+import styles from './admin.module.scss';
 
 const AddTrackForm = () => {
     const cookies = useCookies();
@@ -22,13 +23,13 @@ const AddTrackForm = () => {
     };
 
     return (
-        <div>
-            <h1>Add Track</h1>
+        <div className={styles.addTrackcss}>
+            <h1 className={styles.title}>Add Track</h1>
             <Formik
                 initialValues={{ title: '', name: '', popular: '', genre: '' }}
                 onSubmit={handleSubmit}
             >
-                <Form>
+                <Form className={styles.formm}>
                     <label htmlFor="title">Title</label>
                     <Field id="title" name="title" placeholder="Boys Like Toys" />
 

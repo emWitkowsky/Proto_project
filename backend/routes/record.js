@@ -25,6 +25,7 @@ const Verify = require('../middleware/verify');
 const driver = neo4j.driver(uri, neo4j.auth.basic(userNeo, password));
 
 const session = require('../db/conn');
+const isAdmin = require('../middleware/isAdmin');
 
 recordRoutes.route("/tracks").get(async function(req, res) {
   try {
@@ -519,5 +520,54 @@ recordRoutes.get('/track/:trackName', async (req, res) => {
     session.close();
   }
 });
+
+recordRoutes.post('/warn',isAdmin, async (req, res) => {
+  const session = driver.session();
+  try {
+    const userId = req.body.userId;
+    const query = `
+      MATCH (u:User)
+      WHERE u.id = toInteger($userId)
+      CREATE (w:Warning)
+      CREATE (u)-[:WARNED]->(w)
+      RETURN w
+    `;
+
+    const result = await session.run(query, { userId });
+    const warning = result.records.map(record => record.get(0).properties);
+
+    console.log("User warned successfully")
+    res.json(warning);
+  } catch (error) {
+    console.error(`Error creating warning:`, error);
+    res.status(500).json({ error: `Error creating warning for user with id ${userId}` });
+  } finally {
+    session.close();
+  }
+});
+
+// recordRoutes.route('/user').delete(isAdmin, async (req, res) => {
+//   const session = driver.session();
+//   try {
+//     const email = req.body.email;
+//     const query = `
+//       MATCH (u:User)
+//       WHERE u.email = $email
+//       DETACH DELETE u
+//     `;
+
+//     await session.run(query, { email });
+
+//     console.log("User deleted successfully")
+//     res.json({ message: `User with email ${email} deleted successfully` });
+//   } catch (error) {
+//     console.error(`Error deleting user:`, error);
+//     res.status(500).json({ error: `Error deleting user with email ${email}` });
+//   } finally {
+//     session.close();
+//   }
+// });
+
+
 
 module.exports = recordRoutes;

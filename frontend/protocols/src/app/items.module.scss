@@ -12,6 +12,16 @@
     padding: 8em 4em;
     background-color: rgb(79, 79, 79);
     border-radius: 10%;
+    width: 10em;
+    // height: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.itemInside {
+    width: 10em;
+    // height: 10em;
+    // background-color: red;
 }
 
 .main {

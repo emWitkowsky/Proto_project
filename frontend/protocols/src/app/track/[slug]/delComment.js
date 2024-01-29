@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styles from './track.module.scss';
 
 const DeleteCommentButton = ({ trackId, commentId }) => {
     const handleDelete = async () => {
@@ -14,7 +15,7 @@ const DeleteCommentButton = ({ trackId, commentId }) => {
     };
 
     return (
-        <button onClick={handleDelete}>Delete Comm</button>
+        <button onClick={handleDelete} className={styles.btn}>Delete Comm</button>
     );
 };
 

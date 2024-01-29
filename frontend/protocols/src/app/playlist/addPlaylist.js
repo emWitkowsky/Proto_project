@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
+import styles from './playlist.module.scss';
 
 const CreatePlaylistForm = () => {
     const handleSubmit = async (values) => {
@@ -16,13 +17,13 @@ const CreatePlaylistForm = () => {
     };
 
     return (
-        <div>
+        <div className={styles.addP}>
             <h1>Create Playlist</h1>
             <Formik
                 initialValues={{ name: '' }}
                 onSubmit={handleSubmit}
             >
-                <Form>
+                <Form className={styles.formm}>
                     <label htmlFor="name">Playlist Name</label>
                     <Field id="name" name="name" placeholder="Enter playlist name" />
 

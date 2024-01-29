@@ -8,6 +8,10 @@ const uri = "neo4j+s://345f71a0.databases.neo4j.io";
 const user = "neo4j";
 const password = "L7Jzs_9ZyG4H1jxvWGLvc2PNkfi-q6pzpXRStH-amss";
 
+
+const logger = require('../logger');
+const { log } = require('winston');
+
 // const uri = process.env.URI;
 // const user = process.env.USER;
 // const password = process.env.PASSWORD;
@@ -58,6 +62,7 @@ async function Verify(req, res, next) {
 
             // const { id } = decoded; // get user id from the decoded token
             console.log(decoded, "decoded")
+            logger.info(decoded, "decoded")
             const userId = decoded.id;
             const userIdName = decoded.id.first_name;
             console.log(userId, "id")

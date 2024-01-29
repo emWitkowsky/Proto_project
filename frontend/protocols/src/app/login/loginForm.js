@@ -29,14 +29,15 @@
 import { Formik, Field, Form } from 'formik';
 import { useCookies } from 'next-client-cookies';
 import { useHistory } from 'react-router-dom';
+import styles from './login.module.scss';
 
 const LoginForm = () => {
     const cookies = useCookies();
     // const history = useHistory();
     return (
-        <div>
+        <div className={styles.login1}>
             <h1>Login</h1>
-            <p>Login page body content</p>
+            {/* <p>Login page body content</p> */}
             <Formik
                 initialValues={{ email: '', password: '' }}
                 onSubmit={async (values) => {
@@ -61,7 +62,7 @@ const LoginForm = () => {
                     }
                 }}
             >
-                <Form>
+                <Form className={styles.formm}>
                     <label htmlFor="email">Email</label>
                     <Field id="email" name="email" placeholder="john@doe.com" />
 

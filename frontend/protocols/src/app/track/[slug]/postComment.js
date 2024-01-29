@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
+import styles from './track.module.scss';
 
 const PostCommentForm = ({ trackId }) => {
     const handleSubmit = async (values) => {
@@ -24,8 +25,8 @@ const PostCommentForm = ({ trackId }) => {
             >
                 <Form>
                     <label htmlFor="text"></label>
-                    <Field id="text" name="text" placeholder="Leave a comment" />
-                    <button type="submit">Comment</button>
+                    <Field id="text" name="text" placeholder="Leave a comment" className={styles.formu}/>
+                    <button type="submit" className={styles.btn}>Comment</button>
                 </Form>
             </Formik>
         </div>

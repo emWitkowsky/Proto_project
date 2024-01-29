@@ -6,11 +6,12 @@ import CreatePlaylistForm from './addPlaylist';
 import PlaylistList from './getPlaylists';
 import DeletePlaylistForm from './delPlaylist';
 import UpdatePlaylistForm from './updPlaylist';
+import styles from './playlist.module.scss';
 
 
 export default function PlaylistMenu() {
     return (
-        <div>
+        <div className={styles.box}>
             <CreatePlaylistForm/>
             <PlaylistList/>
             <DeletePlaylistForm/>

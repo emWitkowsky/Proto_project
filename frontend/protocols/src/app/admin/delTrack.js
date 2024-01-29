@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
+import styles from './admin.module.scss';
 
 const DeleteTrackForm = () => {
     const handleSubmit = async (values) => {
@@ -21,13 +22,13 @@ const DeleteTrackForm = () => {
     };
 
     return (
-        <div>
-            <h1>Delete Track</h1>
+        <div className={styles.addTrackcss}>
+            <h1 className={styles.title}>Delete Track</h1>
             <Formik
                 initialValues={{ title: '' }}
                 onSubmit={handleSubmit}
             >
-                <Form>
+                <Form className={styles.formm}>
                     <label htmlFor="title">Track Title</label>
                     <Field id="title" name="title" placeholder="Enter track title" />
 

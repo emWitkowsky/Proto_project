@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
+import styles from './admin.module.scss';
 
 const UpdateUserRoleForm = () => {
     const handleSubmit = async (values) => {
@@ -16,13 +17,13 @@ const UpdateUserRoleForm = () => {
     };
 
     return (
-        <div>
-            <h1>Update User Role</h1>
+        <div className={styles.addTrackcss}>
+            <h1 className={styles.title}>Update User Role</h1>
             <Formik
                 initialValues={{ userId: '', role: 'Moderator' }}
                 onSubmit={handleSubmit}
             >
-                <Form>
+                <Form className={styles.formm}>
                     <label htmlFor="userId">User ID</label>
                     <Field id="userId" name="userId" placeholder="Enter user ID" />
 

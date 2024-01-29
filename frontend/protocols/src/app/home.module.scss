@@ -21,11 +21,24 @@
 
 }
 
+.loginBar {
+    background-color: #001000;
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
 
 
 .myDiv {
     background-color: grey;
     display: flex;
     flex-direction: column;
+}
 
+.fullWidth {
+    width: 100%;
 }

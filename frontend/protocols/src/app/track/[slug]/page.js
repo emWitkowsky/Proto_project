@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import TrackComments from './comments';
 import PostCommentForm from './postComment';
+import styles from './track.module.scss';
 
 
 
@@ -33,15 +34,19 @@ export default function Page({ params }) {
     
 
     return (
-        <div>
-            <h1>Track: {params.slug}</h1>
-            <p>ID: {track.id}</p>
-            <p>Genre: {track.genre}</p>
-            <p>Popular: {track.popular}</p>
+        <div className={styles.trackPage}>
+            <div className={styles.title}>
+                <div className={styles.header}>
+                    <h1>Track: {params.slug}</h1>
+                    <p>ID: {track.id}</p>
+                    <p>Genre: {track.genre}</p>
+                    <p>Popular: {track.popular}</p>
+                </div>
+            </div>
             {/* Display track information here. */}
             <div>
                 <TrackComments trackId={track.id} trakcName={params.slug}/>
-                <PostCommentForm trackId={track.id} />
+                {/* <PostCommentForm trackId={track.id} /> */}
             </div>
         </div>
     );

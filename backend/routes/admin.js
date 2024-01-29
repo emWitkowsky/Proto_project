@@ -132,4 +132,26 @@ recordRoutes.put('/user/:id/role',isAdmin, async (req, res) => {
   }
 });
 
+recordRoutes.route('/user/delete').delete(isAdmin, async (req, res) => {
+  const session = driver.session();
+  try {
+    const email = req.body.email;
+    const query = `
+      MATCH (u:User)
+      WHERE u.email = $email
+      DETACH DELETE u
+    `;
+
+    await session.run(query, { email });
+
+    console.log("User deleted successfully")
+    res.json({ message: `User with email ${email} deleted successfully` });
+  } catch (error) {
+    console.error(`Error deleting user:`, error);
+    res.status(500).json({ error: `Error deleting user with email ${email}` });
+  } finally {
+    session.close();
+  }
+});
+
 module.exports = recordRoutes;
